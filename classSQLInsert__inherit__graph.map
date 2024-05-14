@@ -1,0 +1,4 @@
+<map id="SQLInsert" name="SQLInsert">
+<area shape="rect" id="node1" title="A class representing a SQL INSERT statement." alt="" coords="5,160,135,281"/>
+<area shape="rect" id="node2" href="$classISQL.html" title="An interface class for SQL operations." alt="" coords="25,5,115,112"/>
+</map>

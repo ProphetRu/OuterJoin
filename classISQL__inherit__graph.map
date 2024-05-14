@@ -1,0 +1,7 @@
+<map id="ISQL" name="ISQL">
+<area shape="rect" id="node1" title="An interface class for SQL operations." alt="" coords="281,5,371,112"/>
+<area shape="rect" id="node2" href="$classSQLInsert.html" title="A class representing a SQL INSERT statement." alt="" coords="5,160,135,281"/>
+<area shape="rect" id="node3" href="$classSQLIntersection.html" title="A class representing a SQL INTERSECTION operation." alt="" coords="159,175,301,267"/>
+<area shape="rect" id="node4" href="$classSQLSymmetricDifference.html" title="A class representing a SQL SYMMETRIC DIFFERENCE operation." alt="" coords="326,175,521,267"/>
+<area shape="rect" id="node5" href="$classSQLTruncate.html" title="A class representing a SQL TRUNCATE statement." alt="" coords="545,167,675,274"/>
+</map>
