@@ -12,7 +12,6 @@
 #include <boost/asio/write.hpp>
 
 #include <iostream>
-#include <format>
 
 #include "DBMS.h"
 #include "SQLHandler.h"
@@ -61,14 +60,18 @@ awaitable<void> HandleClient(tcp::socket client_socket) noexcept
 					{
 						for (const auto table{ g_DBMS.Intersection() }; const auto & [index, filelds] : table)
 						{
-							co_await async_write(client_socket, boost::asio::buffer(std::format("{},{},{}\n", index, filelds.first, filelds.second)), use_awaitable);
+							// because github actions don't support std::format :(
+							std::string msg = std::to_string(index) + "," + filelds.first + "," + filelds.second + "\n";
+							co_await async_write(client_socket, boost::asio::buffer(msg), use_awaitable);
 						}
 					}
 					else if (query->GetType() == SQLType::SymmetricDifference)
 					{
 						for (const auto table{ g_DBMS.SymmetricDifference() }; const auto & [index, filelds] : table)
 						{
-							co_await async_write(client_socket, boost::asio::buffer(std::format("{},{},{}\n", index, filelds.first, filelds.second)), use_awaitable);
+							// because github actions don't support std::format :(
+							std::string msg = std::to_string(index) + "," + filelds.first + "," + filelds.second + "\n";
+							co_await async_write(client_socket, boost::asio::buffer(msg), use_awaitable);
 						}
 					}
 
@@ -76,7 +79,11 @@ awaitable<void> HandleClient(tcp::socket client_socket) noexcept
 				}
 				catch (const std::exception& ex)
 				{
-					write(client_socket, boost::asio::buffer(std::format("< ERR {}\n", ex.what())));
+					// because github actions don't support std::format :(
+					std::string msg = "< ERR ";
+					msg += ex.what();
+					msg += "\n";
+					write(client_socket, boost::asio::buffer(msg));
 				}
 			}
 		}
